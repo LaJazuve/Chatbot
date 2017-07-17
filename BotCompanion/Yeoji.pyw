@@ -152,7 +152,7 @@ NameBot = Label(window, text="Yeoji")
 NameBot.grid(row=0, column=0, columnspan=1)
 
 
-messages = Text(window, state="disabled", height=20, width=30, foreground=mem["text_color"])
+messages = Text(window, state="disabled", height=20, width=30, background=mem["text_bg"],foreground=mem["text_color"])
 messages.grid(column=1, row=1)
 
 input_user = StringVar()
