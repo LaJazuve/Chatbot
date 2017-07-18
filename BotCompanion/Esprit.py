@@ -6,8 +6,20 @@
 #liste des methode et class uriliser par l'ia
 
 import pickle
+from random import choice
 
-name=""
+
+def interactiondebase(in_, memories):
+        rep=''
+
+        for mot in memories['Hello']:
+                if in_== mot:
+                        rep= choice(memories['Hello'])
+                        return rep
+                        break
+        else:
+                return ("wut ?")
+
 
 
 def save(donnee):
@@ -24,16 +36,11 @@ def load():
                 donnee=depickler.load()
         return donnee
 
-
-
-                
-
-
-                #input
-                #analyse
-                #reaction
-                #constructor msg
-                #output
+#input
+#analyse
+#reaction
+#constructor msg
+#output
 
                 
 

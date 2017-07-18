@@ -10,7 +10,7 @@ from tkinter.filedialog import *
 import tkinter.colorchooser as clr
 
 import time
-import pickle#sauvegarde des parametre
+
 
 import Esprit
 import Memory
@@ -121,18 +121,26 @@ def displayProfil():
 
 
 def Enter_pressed(event):
-        input_get = input_field.get() 
+    input_get = input_field.get() 
 
-        if (input_get != ""):
+    if (input_get != ""):
+            #####input user
+            messages.config(state="normal")
+            messages.insert(END, '\n'+ mem['user_name']+" :"+'\n'+input_get+'\n')
+            messages.config(state="disabled")
+            messages.see("end")           
+            input_user.set("")
+            #####input ia
+            messages.config(state="normal")
+            messages.insert(END, '\n'+ 'Yeoji'+" :"+'\n'+Esprit.interactiondebase(input_get,mem)+'\n')
+            messages.config(state="disabled")
+            messages.see("end")
 
-	
-                    messages.config(state="normal")
-                    messages.insert(END, '\n'+ mem['user_name']+" :"+'\n'+input_get+'\n')
-                    messages.config(state="disabled")
-                    messages.see("end")
-                    # label = Label(window, text=input_get)
-                    input_user.set("")
-                    # label.pack()
+
+
+                   
+###############################################################################
+
     
 if os.path.exists("Ame.alive"): ##la ça va mais peut etre prevoir un ajout en cas de modif de memory alors que l'ame est déjà bien travailler
 
