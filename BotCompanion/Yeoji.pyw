@@ -10,6 +10,7 @@ from tkinter.filedialog import *
 import tkinter.colorchooser as clr
 
 import time
+import PIL as pil
 
 
 import Esprit
@@ -27,22 +28,28 @@ mem={} #variable local qui reçoit les donnee de Ame.alive
 
 ####fair une interface graphique pour la gestion et creation des animes ?
 ##class gestion_anime:
+
  
-def play_anime(frq, win, widget, frames,img):
+
+         
+
+#####essayer de trouver une forme plus optimiser pour gerer les anime (dans la class ? un objet a part
+         
+def play_anime(frq, win, widget, animation,img):
 
         global animeNum
 
-        loadImage = frames.Frames[animeNum]
+        loadImage = animation.Frames[animeNum]
        # widget.create_image(576/2, 323/2, image = loadImage) ###on utilise itemconfig maintenant, IC remplace l'image, create_image en créer une autre, les image s'accumule pour rien
         widget.itemconfig( img, image=loadImage)
         
-        if animeNum< len(frames.Frames)-1:
+        if animeNum< len(animation.Frames)-1:
                 animeNum +=1
         else:
                 animeNum = 0
 
-        win.after(frq, play_anime, frq,win , widget, frames,img)
-               
+        win.after(frq, play_anime, frq,win , widget, animation,img)
+
         
 class animation:
 
@@ -185,9 +192,10 @@ Menuopt.add_command(label="ColorText", command=displayOptionsText)
 sousMenu.add_command(label='Profil', command=displayProfil)
 
 ###test creation anime
-anime_zero = animation("test", 'Corps\\animewtf')
+#anime_zero = animation("clignement", 'Corps\\anime yeoji\\Clignement')
+idle= animation("idle", 'Corps\\anime yeoji\\Idle')
 #anime_zero = animation("test", ['Corps\\0.gif', 'Corps\\1.gif', 'Corps\\2.gif']) ###essayer de trouver une methode pour pouvoir utiliser des jpeg et non des gifs
-play_anime( 10,window, can, anime_zero ,lectimg)#frq=milliseconde
+play_anime( 10,window, can, idle ,lectimg)#frq=milliseconde
 
 window.mainloop()
 
